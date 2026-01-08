@@ -2,7 +2,8 @@
 const { Task } = require('../models');
 
 exports.getAllTasks = async (req, res) => {
-  try {
+  
+    try {
     const tasks = await Task.findAll({
       order: [['created_at', 'DESC']]
     });
@@ -13,7 +14,8 @@ exports.getAllTasks = async (req, res) => {
 };
 
 exports.createTask = async (req, res) => {
-  try {
+  
+    try {
     const { title } = req.body;
 
     if (!title || title.trim() === '') {
@@ -28,7 +30,8 @@ exports.createTask = async (req, res) => {
 };
 
 exports.updateTask = async (req, res) => {
-  try {
+  
+    try {
     const { id } = req.params;
     const { completed, title } = req.body;
 
@@ -48,7 +51,8 @@ exports.updateTask = async (req, res) => {
 };
 
 exports.deleteTask = async (req, res) => {
-  try {
+  
+    try {
     const { id } = req.params;
 
     const task = await Task.findByPk(id);
