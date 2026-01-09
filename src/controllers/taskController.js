@@ -2,7 +2,6 @@
 const { Task } = require('../models');
 
 exports.getAllTasks = async (req, res) => {
-  
     try {
     const tasks = await Task.findAll({
       order: [['created_at', 'DESC']]
